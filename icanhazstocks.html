@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stock Market Status</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .status-indicator {
+            width: 200px;
+            margin-top: 30px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .current-value {
+            color: #333;
+            font-size: 16px;
+        }
+
+        .status {
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .good {
+            background-color: #4CAF50;
+            color: white;
+            font-weight: bold;
+        }
+
+        .bad {
+            background-color: #f44336;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="status-indicator">
+        <span class="current-value">Current Value: 0.0</span>
+        <div class="status" id="value-display"></div>
+    </div>
+
+    <h1>Stock Market Status (S&P 500)</h1>
+
+    <script>
+        // Example values for demonstration
+        let statusValue = Math.random() * 2;
+        
+        function setStatus(color, text) {
+            document.getElementById('value-display').innerHTML = 
+                `<span class="${color}">${text}</span>`;
+        }
+
+        if (statusValue >= -0.5 && statusValue < 0) {
+            setStatus('bad', ' BAD');
+        } else {
+            setStatus('good', ' GOOD');
+        }
+    </script>
+</body>
+</html>
